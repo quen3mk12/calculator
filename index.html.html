@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>calculater</title>
+  <style>
+    body { background:#000; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif; }
+    .calc { background:#1c1c1e; padding:20px; border-radius:20px; width:250px; }
+    #d { width:100%; height:50px; font-size:30px; text-align:right; background:#000; color:#fff; border:none; margin-bottom:10px; padding-right:10px; }
+    button { width:50px; height:50px; margin:5px; font-size:20px; border:none; border-radius:12px; background:#333; color:#fff; cursor:pointer; }
+    .o { background:#ff9500; }
+  </style>
+</head>
+<body>
+  <div class="calc">
+    <input id="d" disabled>
+    <div>
+      <button onclick="c()">C</button><button onclick="p('/')">÷</button><button onclick="p('*')">×</button><button class="o" onclick="p('-')">−</button><br>
+      <button onclick="p('7')">7</button><button onclick="p('8')">8</button><button onclick="p('9')">9</button><button class="o" onclick="p('+')">+</button><br>
+      <button onclick="p('4')">4</button><button onclick="p('5')">5</button><button onclick="p('6')">6</button><button class="o" onclick="r()">=</button><br>
+      <button onclick="p('1')">1</button><button onclick="p('2')">2</button><button onclick="p('3')">3</button><button onclick="p('.')">.</button><br>
+      <button style="width:112px;" onclick="p('0')">0</button>
+    </div>
+  </div>
+  <script>
+    const d = document.getElementById("d");
+    const p = v => d.value += v;
+    const c = () => d.value = '';
+    const r = () => { try { d.value = eval(d.value); } catch { d.value = "Err"; } };
+  </script>
+</body>
+</html>
